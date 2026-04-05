@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인덱스</title>
+</head>
+<body>
+    <h1>지식인</h1>
+    <a href="/login">로그인</a>
+    <a href="/register">회원가입</a>
+    <a href="/write">글쓰기</a>
+    <hr>
+    {% for question in questions %}
+        <div>
+            <a href="/detail/{{ question[0] }}">{{ question[2] }}</a>
+            <small>작성자: {{ question[1] }}</small>
+            <hr>
+        </div>
+    {% endfor %}
+</body>
+</html>

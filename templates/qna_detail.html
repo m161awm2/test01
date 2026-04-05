@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의 상세</title>
+</head>
+<body>
+    <h1>{{ question[2] }}</h1>
+    <p>{{ question[3] }}</p>
+    <small>작성자: {{ question[1] }}</small>
+    
+    <hr>
+
+    <a href="/">목록으로</a>
+
+    <hr>
+
+    <!-- 삭제 기능 -->
+    <form method="POST" action="/detail/{{ question[0] }}/delete">
+        <button type="submit">삭제</button>
+    </form>
+
+    <hr>
+
+    <!-- 좋아요 기능 -->
+    <form method="POST" action="/detail/{{ question[0] }}/like">
+        <button type="submit">좋아요</button>
+    </form>
+
+    <p>좋아요 목록</p>
+    {% for like in likes %}
+        <p>{{ like[1] }}</p>
+    {% endfor %}
+
+    <hr>
+
+    <!-- 댓글 작성 -->
+    <form method="POST" action="/detail/{{ question[0] }}/comment">
+        <input type="text" name="content" placeholder="댓글을 입력하세요" required>
+        <button type="submit">댓글 작성</button>
+    </form>
+
+    <hr>
+
+    <!-- 댓글 목록 -->
+    {% for comment in comments %}
+        <p>{{ comment[2] }}</p>
+        <small>{{ comment[1] }}</small>
+        <hr>
+    {% endfor %}
+</body>
+</html>
