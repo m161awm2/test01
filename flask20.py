@@ -2,13 +2,13 @@ from flask import Flask, request,redirect,render_template,session
 import pymysql
 
 app = Flask(__name__)
-app.secret_key = "교회는영어로처치"
+app.secret_key = "123"
 
 def make_db():
     conn = pymysql.connect(
         host = "localhost",
         user = "root",
-        passwd = "Zdzdsmsm44!"
+        passwd = ""
     )
     c = conn.cursor()
     c.execute("CREATE DATABASE IF NOT EXISTS flask20")
@@ -19,7 +19,7 @@ def connector():
     return pymysql.connect(
         host="localhost",
         user="root",
-        passwd="Zdzdsmsm44!",
+        passwd="",
         database="flask20"
     )
 
